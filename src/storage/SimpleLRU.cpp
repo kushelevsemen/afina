@@ -17,7 +17,7 @@ bool SimpleLRU::PutIfAbsent(const std::string &key, const std::string &value) {
             return false;
             }
         if (elem_size + _cur_size > _max_size) {
-            DeleteRequired(elem_size);
+            DeleteRequired(elem_size); // free requierd space
             }
         _cur_size += key.size() + value.size();
         auto *node = new lru_node(key, value);
